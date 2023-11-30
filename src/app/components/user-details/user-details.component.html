@@ -1,0 +1,70 @@
+<nav class="navbar nav-bar sticky-top">
+  <div style="width: 100%; margin-right: 30px">
+    <div class="float-end">
+      <button class="btn btn-outline-danger me-4" routerLink="/posts">
+        Posts
+      </button>
+      <button class="btn btn-outline-danger" routerLink="/todos">Todo</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <div
+        class="card mt-3 shadow p-3 mb-5 bg-body-tertiary rounded"
+        style="width: 500px"
+      >
+        <div class="card-header">
+          <img
+            src="../../../assets/images/user-logo.jpg"
+            class="card-img-top"
+            alt="image"
+            width="200px"
+            height="300px"
+          />
+        </div>
+        <div class="card-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <div>
+                  Name: <span>{{ currentUser.name }}</span>
+                </div>
+                <div>
+                  Nick Name: <span>{{ currentUser.username }}</span>
+                </div>
+                <div>
+                  Email: <span>{{ currentUser.email }}</span>
+                </div>
+                <div>
+                  Phone: <span>{{ currentUser.phone }}</span>
+                </div>
+                <div>
+                  Website: <span>{{ currentUser.website }}</span>
+                </div>
+              </div>
+              <div class="col-md-6" style="border-left: 1px solid gray">
+                Address: <br />
+                <div>
+                  Street: <span>{{ currentUser.address.street }}</span>
+                </div>
+                <div>
+                  City: <span>{{ currentUser.address.city }}</span>
+                </div>
+                <div>
+                  Zipcode: <span>{{ currentUser.address.zipcode }}</span>
+                </div>
+                <br />
+                <div>
+                  Company Name: <span>{{ currentUser.company.name }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

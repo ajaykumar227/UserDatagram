@@ -1,0 +1,52 @@
+<mat-toolbar class="d-flex justify-content-between dialog-nav">
+  <span style="color: white">New Post</span>
+  <button mat-icon-button [mat-dialog-close]="false">
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="container mt-5 mb-3">
+  <form [formGroup]="postForm" (ngSubmit)="onPost()">
+    <mat-form-field appearance="outline">
+      <mat-label>Post Title</mat-label>
+      <input type="text" formControlName="title" matInput required />
+    </mat-form-field>
+    <div
+      *ngIf="
+        postForm.controls['title'].touched && postForm.controls['title'].invalid
+      "
+    >
+      <mat-error *ngIf="postForm.controls['title'].errors?.['required']"
+        >This Field is required</mat-error
+      >
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Post Body</mat-label>
+      <input type="text" formControlName="body" matInput required />
+    </mat-form-field>
+    <div
+      *ngIf="
+        postForm.controls['body'].touched && postForm.controls['body'].invalid
+      "
+    >
+      <mat-error *ngIf="postForm.controls['body'].errors?.['required']"
+        >This Field is required</mat-error
+      >
+    </div>
+
+    <div class="btn-row">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="postForm.invalid"
+      >
+        {{ data ? "Update Post" : "Post" }}
+      </button>
+      <button type="button" mat-raised-button color="warn" (click)="onReset()">
+        Reset
+      </button>
+    </div>
+  </form>
+</div>

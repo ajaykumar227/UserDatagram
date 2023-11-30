@@ -1,0 +1,36 @@
+<nav class="navbar nav-bar fixed-top">
+  <form class="d-flex justify-content-center search-form" role="search">
+    <input
+      type="text"
+      placeholder="Search..."
+      [(ngModel)]="searchText"
+      name="search"
+      (keyup)="onKeyChange()"
+      autocomplete="off"
+    />
+    <i class="fa-solid fa-magnifying-glass" (click)="onSearch()"></i>
+  </form>
+</nav>
+
+<div class="container mt-5">
+  <div class="row">
+    <div
+      class="mt-5"
+      *ngIf="comments.length > 0 && filteredComments.length == 0"
+    >
+      No Comments Found!
+    </div>
+    <div class="col-12 mt-3" *ngFor="let comment of filteredComments">
+      <div class="card text-center shadow p-2 mb-2 bg-body-tertiary rounded">
+        <div class="card-header" style="height: 50px"></div>
+        <div class="card-body">
+          <h5 class="card-title">{{ comment.name }}</h5>
+          <p class="card-text">
+            {{ comment.body }}
+          </p>
+          <a href="#">{{ comment.email }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

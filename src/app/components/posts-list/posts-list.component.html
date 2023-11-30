@@ -1,0 +1,59 @@
+<nav class="navbar nav-bar fixed-top">
+  <form class="d-flex justify-content-center search-form" role="search">
+    <input
+      type="text"
+      placeholder="Search..."
+      [(ngModel)]="searchText"
+      name="search"
+      (keyup)="onKeyChange()"
+      autocomplete="off"
+    />
+    <i class="fa-solid fa-magnifying-glass" (click)="onSearch()"></i>
+  </form>
+  <div class="add_post">
+    <button class="btn btn-outline-danger" (click)="onAddPost()">
+      Add Post
+    </button>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="mt-5" *ngIf="posts.length > 0 && filteredPosts.length == 0">
+      No Posts Found!
+    </div>
+    <div class="col-12 mt-5" *ngFor="let post of filteredPosts">
+      <ul
+        class="list-group post-card shadow p-2 mb-2 bg-body-tertiary rounded"
+        style="cursor: pointer"
+      >
+        <li
+          class="list-group-item list-group-item-action list-group-item-primary"
+        >
+          <a routerLink="/comments">{{ post.title }}</a>
+          <button
+            mat-icon-button
+            color="primary"
+            matTooltip="Edit"
+            (click)="editPost(post)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="warn"
+            matTooltip="Delete"
+            (click)="deletePost(post.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </li>
+        <li class="list-group-item list-group-item-action">
+          <a>
+            <p>{{ post.body }}</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

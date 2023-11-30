@@ -1,0 +1,37 @@
+.nav-bar{
+    background: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,1));
+    height: 60px;
+}
+
+.search-form{
+    /* border: 2px solid black;  */
+    width: 100%;
+    position: relative;
+}
+
+.search-form input{
+    width: 300px; 
+    background: transparent; 
+    padding: 10px 20px; 
+    border: none;
+    outline: none;
+    border-radius: 20px; 
+}
+
+.search-form i{
+    padding: 15px 10px;
+    position: absolute;
+    margin-left: 250px;
+}
+
+.search-form input:focus{
+    border-bottom: 1px solid gray;
+}
+
+.todo-card{
+    transition: all .5s;
+}
+
+.todo-card:hover{
+    transform: translateY(20px);
+}

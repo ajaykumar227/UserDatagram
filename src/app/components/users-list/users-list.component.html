@@ -1,0 +1,68 @@
+<nav class="navbar nav-bar sticky-top">
+  <form class="d-flex justify-content-center search-form" role="search">
+    <input
+      type="text"
+      placeholder="Search..."
+      [(ngModel)]="searchText"
+      name="search"
+      (keyup)="onKeyChange()"
+    />
+    <i class="fa-solid fa-magnifying-glass" (click)="onSearch()"></i>
+  </form>
+  <div style="width: 20%; margin-right: 20px">
+    <button class="btn btn-outline-danger float-end" routerLink="/albums">
+      Album
+    </button>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <div>
+    <button class="btn btn-secondary mx-4" (click)="sortUsers('asc')">⬆</button>
+    <button class="btn btn-secondary" (click)="sortUsers('dsc')">⬇</button>
+  </div>
+  <div class="loading">
+    <i class="fa-solid fa-spinner" *ngIf="loading"></i>
+  </div>
+  <div class="row">
+    <div *ngIf="users.length > 0 && filteredUsers.length == 0">
+      No Users Found!
+    </div>
+
+    <div class="col-md-4 mt-2" *ngFor="let user of filteredUsers">
+      <div
+        class="card shadow p-2 mb-2 bg-body-tertiary rounded user-card"
+        style="width: 20rem; height: 10rem"
+        [routerLink]="['/users', user.id]"
+      >
+        <div class="card-body">
+          <div class="row">
+            <div class="col-3">
+              <img
+                class="rounded-circle"
+                src="../../../assets/images/user-logo.jpg"
+                alt="image"
+                width="70px"
+                height="90px"
+              />
+            </div>
+            <div class="col-9 mt-2">
+              <div class="userName">
+                Name: <span>{{ user.name }} </span>
+              </div>
+              <div class="email">
+                Email: <span>{{ user.email }} </span>
+              </div>
+              <div class="phone">
+                Contact: <span>{{ user.phone }} </span>
+              </div>
+              <div class="company">
+                Company: <span>{{ user.company.name }} </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

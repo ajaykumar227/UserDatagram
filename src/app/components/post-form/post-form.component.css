@@ -1,0 +1,17 @@
+
+ mat-form-field{
+    width: 100%;
+}
+
+.btn-row{
+    text-align: center;
+}
+
+.btn-row button{
+    margin: 20px;
+    
+}
+
+.dialog-nav{
+    background: linear-gradient(to left, rgba(255,0,0,0), rgba(255,0,0,1));
+}
